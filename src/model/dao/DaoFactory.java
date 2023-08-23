@@ -1,5 +1,6 @@
 package model.dao;
 
+import db.DB;
 import model.dao.impl.SellerDaoJDBC;
 
 // Fábrica de DAO. Aqui tem operações estáticas
@@ -12,7 +13,7 @@ public class DaoFactory {
 	// É também uma forma de fazer uma injeção de dependência,
 	// sem explicitar a implementação
 	public static SellerDao createSellerDao() {
-		return new SellerDaoJDBC();
+		return new SellerDaoJDBC(DB.getConnection());
 	}
 	
 }

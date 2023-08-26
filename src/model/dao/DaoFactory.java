@@ -1,6 +1,7 @@
 package model.dao;
 
 import db.DB;
+import model.dao.impl.DepartmentDaoJDBC;
 import model.dao.impl.SellerDaoJDBC;
 
 // Fábrica de DAO. Aqui tem operações estáticas
@@ -16,4 +17,7 @@ public class DaoFactory {
 		return new SellerDaoJDBC(DB.getConnection());
 	}
 	
+	public static DepartmentDao createDepartmentDao() {
+		return new DepartmentDaoJDBC(DB.getConnection());
+	}
 }
